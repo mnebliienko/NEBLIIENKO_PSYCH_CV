@@ -91,7 +91,7 @@
       object-fit: cover;
       object-position: center top;
       background: #ffffff;
-      transform: scale(1.2) translateY(8px);
+      transform: scale(1.2) translateY(-10px);
       transform-origin: center top;
       z-index: 1;
     }
@@ -304,8 +304,14 @@
     }
 
     @media print {
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+
       body {
         background: #fff;
+        font-size: 11pt;
       }
 
       .page {
@@ -319,12 +325,72 @@
         box-shadow: none;
         background: #fff;
         backdrop-filter: none;
+        border: none;
         border-radius: 0;
       }
 
+      .hero {
+        grid-template-columns: 170px 1fr;
+        gap: 20px;
+        padding: 0 0 12px;
+        border-bottom: 1px solid #cfcfcf;
+      }
+
+      .photo-wrap {
+        max-width: 170px;
+      }
+
+      .hero-meta .action:last-child,
+      .footer {
+        display: none;
+      }
+
       .layout {
-        grid-template-columns: 290px 1fr;
-        gap: 16px;
+        display: block;
+        margin-top: 14px;
+      }
+
+      .panel,
+      .content {
+        padding: 0;
+      }
+
+      .block,
+      .section,
+      .job,
+      .training-group,
+      .education-card,
+      .facts > div,
+      ul,
+      li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .block + .block,
+      .section + .section,
+      .job + .job,
+      .training-group + .training-group {
+        margin-top: 16px;
+        padding-top: 16px;
+      }
+
+      .job-header {
+        gap: 6px;
+      }
+
+      .job-meta {
+        text-align: left;
+        white-space: normal;
+      }
+
+      .chips {
+        gap: 6px;
+      }
+
+      .chip {
+        font-size: 0.82rem;
+        padding: 6px 10px;
       }
     }
   </style>
