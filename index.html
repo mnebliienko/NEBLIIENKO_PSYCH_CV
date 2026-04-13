@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Максим Неблієнко | Військовий психолог</title>
+  <meta
+    name="description"
+    content="Військовий психолог. Індивідуальне та групове консультування, психологічне відновлення, гештальт-підхід, фасилітація груп, психоосвіта, документація та цифрові процеси."
+  >
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --paper: rgba(255, 255, 255, 0.78);
+      --ink: #1c2322;
+      --muted: #5f6968;
+      --accent: #47645a;
+      --accent-soft: #d9e5de;
+      --line: #d8d0c5;
+      --shadow: 0 20px 48px rgba(28, 35, 34, 0.10);
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(71, 100, 90, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(169, 140, 95, 0.12), transparent 24%),
+        linear-gradient(180deg, #f6f1e9 0%, #efe9df 100%);
+      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 24px auto 48px;
+    }
+
+    .hero,
+    .panel,
+    .content {
+      border: 1px solid rgba(28, 35, 34, 0.08);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      padding: 28px;
+      border-radius: 28px;
+    }
+
+    .photo-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    .photo-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(71, 100, 90, 0.16), rgba(169, 140, 95, 0.12));
+      z-index: 0;
+    }
+
+    .photo {
+      position: relative;
+      display: block;
+      width: 100%;
+      border-radius: 24px;
+      object-fit: cover;
+      background: #101010;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+      line-height: 1.1;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(2.2rem, 4.6vw, 4rem);
+      letter-spacing: -0.04em;
+    }
+
+    .role {
+      margin-top: 10px;
+      color: var(--accent);
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .summary {
+      margin-top: 18px;
+      max-width: 60rem;
+      color: #2b3534;
+      font-size: 1.02rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .meta-chip,
+    .action {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(28, 35, 34, 0.10);
+      background: rgba(255, 255, 255, 0.78);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .action.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .panel,
+    .content {
+      border-radius: 28px;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .content {
+      padding: 28px;
+    }
+
+    .block + .block {
+      margin-top: 26px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .block h2 {
+      font-size: 1.32rem;
+      margin-bottom: 14px;
+    }
+
+    .facts {
+      display: grid;
+      gap: 14px;
+    }
+
+    .fact-label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .fact-value {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(71, 100, 90, 0.08);
+      border: 1px solid rgba(71, 100, 90, 0.16);
+      color: #2e4a40;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .job + .job,
+    .section + .section {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+      align-items: baseline;
+    }
+
+    .job-title {
+      font-size: 1.16rem;
+    }
+
+    .job-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .job-subtitle {
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .training-group h3 {
+      font-size: 1.03rem;
+      margin-bottom: 10px;
+    }
+
+    .training-group + .training-group {
+      margin-top: 22px;
+    }
+
+    .footer {
+      margin-top: 16px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .job-header {
+        flex-direction: column;
+      }
+
+      .job-meta {
+        white-space: normal;
+        text-align: left;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      .hero,
+      .panel,
+      .content {
+        box-shadow: none;
+        background: #fff;
+        backdrop-filter: none;
+        border-radius: 0;
+      }
+
+      .layout {
+        grid-template-columns: 290px 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="photo-wrap">
+        <img class="photo" src="assets/profile.png" alt="Максим Неблієнко">
+      </div>
+      <div>
+        <span class="eyebrow">Психологічне резюме</span>
+        <h1>Максим Неблієнко</h1>
+        <div class="role">Військовий психолог</div>
+        <p class="summary">
+          Військовий психолог з поточним досвідом служби в підрозділі психологічного відновлення, практикою
+          індивідуального та групового консультування, а також ґрунтовною підготовкою в гештальт-підході,
+          роботі з групами, сім'ями та вразливими категоріями населення. Впевнено проводжу навчальні заняття,
+          групові mindfulness-сесії, індивідуальні та групові консультації, веду електронні журнали, документацію
+          та звітність. Додатковою перевагою є багаторічний IT-досвід у backend-розробці для fintech, blockchain
+          та AI-продуктів, що підсилює мою роботу з цифровими інструментами, структурованими процесами та документацією.
+        </p>
+        <div class="hero-meta">
+          <a class="action primary" href="mailto:nebliienko@gmail.com">nebliienko@gmail.com</a>
+          <span class="meta-chip">Україна</span>
+          <span class="meta-chip">Англійська C1</span>
+          <a class="action" href="#" onclick="window.print(); return false;">Друк / PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <aside class="panel">
+        <div class="block">
+          <h2>Ключовий профіль</h2>
+          <div class="facts">
+            <div>
+              <span class="fact-label">Поточна роль</span>
+              <div class="fact-value">Офіцер групи психологічного відновлення, лейтенант</div>
+            </div>
+            <div>
+              <span class="fact-label">Фокус</span>
+              <div class="fact-value">Військова психологія, групова робота, психологічне відновлення</div>
+            </div>
+            <div>
+              <span class="fact-label">Додаткова перевага</span>
+              <div class="fact-value">Сильний IT-бекграунд, цифрові процеси, документація та звітність</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>Компетенції</h2>
+          <div class="chips">
+            <span class="chip">Індивідуальне консультування</span>
+            <span class="chip">Групове консультування</span>
+            <span class="chip">Фасилітація груп підтримки</span>
+            <span class="chip">Навчальні заняття</span>
+            <span class="chip">Mindfulness-сесії</span>
+            <span class="chip">Психоосвіта</span>
+            <span class="chip">Гештальт-підхід</span>
+            <span class="chip">Робота з групами</span>
+            <span class="chip">Робота з сім'ями і підлітками</span>
+            <span class="chip">Вразливі категорії населення</span>
+            <span class="chip">Електронна документація</span>
+            <span class="chip">Звітність</span>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>Освіта</h2>
+          <div class="facts">
+            <div>
+              <span class="fact-label">Магістр</span>
+              <div class="fact-value">Академія прикладних наук - Вища школа управління та адміністрації в Ополе</div>
+              <div>Управління персоналом та психологія бізнесу</div>
+              <div class="job-meta" style="text-align:left; margin-top:4px;">09.2022 - 03.2026</div>
+            </div>
+            <div>
+              <span class="fact-label">Додаткова вища освіта</span>
+              <div class="fact-value">Магістр комп'ютерних наук (штучний інтелект), з відзнакою</div>
+              <div>KTURE University, Харків, Україна</div>
+              <div class="job-meta" style="text-align:left; margin-top:4px;">2011 - 2017</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="section">
+          <h2>Практичний досвід</h2>
+
+          <article class="job">
+            <div class="job-header">
+              <h3 class="job-title">Військова частина А5060, 147 ОАБр, 7 корпус ДШВ</h3>
+              <div class="job-meta">10.2025 - дотепер</div>
+            </div>
+            <div class="job-subtitle">Офіцер групи психологічного відновлення, лейтенант</div>
+            <ul>
+              <li>Проводжу індивідуальні та групові консультації для військовослужбовців.</li>
+              <li>Веду навчальні заняття з психологічної тематики та впевнено працюю з аудиторією.</li>
+              <li>Проводжу групові mindfulness-сесії.</li>
+              <li>Забезпечую ведення електронних журналів групи та повну звітність за напрямом.</li>
+              <li>Працюю з документацією, електронним обліком і внутрішньою організацією процесів.</li>
+              <li>Теоретично підготовлений до застосування дебрифінгу та деф'юзінгу; практичного досвіду за цим напрямом наразі не мав.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-header">
+              <h3 class="job-title">Приватна психологічна практика, онлайн</h3>
+              <div class="job-meta">2018 - 2021</div>
+            </div>
+            <div class="job-subtitle">Психологічне консультування</div>
+            <ul>
+              <li>Проводив індивідуальні онлайн-консультації з різними запитами.</li>
+              <li>Працював як з короткостроковими запитами, так і з тривалим супроводом клієнтів.</li>
+              <li>Мав досвід роботи з підлітковими запитами.</li>
+              <li>За окремими запитами продовжую консультування і після завершення основного періоду практики.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-header">
+              <h3 class="job-title">НГО / групові формати підтримки</h3>
+              <div class="job-meta">2020</div>
+            </div>
+            <div class="job-subtitle">Фасилітатор груп підтримки</div>
+            <ul>
+              <li>Фасилітував онлайн-групи підтримки в НГО "Сфера".</li>
+              <li>Провів групу для вразливих категорій населення у форматі 12 зустрічей.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-header">
+              <h3 class="job-title">Додатковий професійний бекграунд</h3>
+              <div class="job-meta">IT / технічний досвід</div>
+            </div>
+            <ul>
+              <li>Маю багаторічний досвід роботи в IT як Senior Java Software Engineer, зокрема в backend-розробці для fintech, blockchain та AI-продуктів.</li>
+              <li>Працював із fintech-інфраструктурою, транскордонними платежами, blockchain-рішеннями, distributed systems, інтеграціями та production-підтримкою.</li>
+              <li>Маю сильний досвід у структурованих процесах, документації, звітності, цифрових системах та організації робочих процесів.</li>
+              <li>Високий рівень цифрової грамотності допомагає ефективно вести облік, працювати з електронними журналами та швидко опановувати нові інструменти.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="section">
+          <h2>Підготовка і сертифікації</h2>
+
+          <div class="training-group">
+            <h3>Гештальт-підхід</h3>
+            <ul>
+              <li>Друга ступінь навчання методу гештальт-терапії, 390 годин, ХіГІП, 2018 - 2021.</li>
+              <li>Навчання другої ступені завершено; сертифікація ще не завершена.</li>
+              <li>Спеціалізація по роботі з сім'єю, парами, підлітками, ХіГІП, 29.05.2020 - 05.12.2021.</li>
+              <li>Спеціалізація по роботі з групами, ХіГІП, 07.08.2021 - 13.02.2023.</li>
+            </ul>
+          </div>
+
+          <div class="training-group">
+            <h3>Військова психологія</h3>
+            <ul>
+              <li>Психологічна підготовка від Міноборони (Армія+), 12.10.2025.</li>
+              <li>Курс "Військова психологія: інтегративний підхід", Міжнародний інститут психології, 22.10.2025.</li>
+              <li>Особливості роботи офіцера-психолога в умовах бойових дій, Prometheus, 23.10.2025.</li>
+              <li>Курс у Великобританії "Групи контролю бойового стресу", 24.01.2026 - 02.03.2026.</li>
+              <li>Онлайн-курс "Перша психологічна допомога", Prometheus, 16.02.2026.</li>
+              <li>mhGAP, 1 та 2 рівень, 06.02.2026.</li>
+              <li>"Шлях пораненого до прийняття нового себе та повного психосоціального відновлення", Prometheus, 16.02.2026.</li>
+              <li>"Хамелеон. Уникнення полону та психологія виживання в полоні", Prometheus, 16.02.2026.</li>
+            </ul>
+          </div>
+
+          <div class="training-group">
+            <h3>Інші тематичні програми</h3>
+            <ul>
+              <li>Підготовка наставників для дітей-сиріт, БО "БФ "Майбутність і надія"", 29.03.2015, сертифікат №45/48.</li>
+              <li>Введення у гештальт-терапію, ХіГІП, 12.2017 - 10.2018, сертифікат №460/18.</li>
+              <li>Введення в психодраму, ХіГІП, 10.2018 - 04.2019, сертифікат №532/19.</li>
+              <li>Семінар-тренінг "Сексуальність. Гештальт. Зустріч з собою та іншими", 05.2019 - 04.2020, сертифікат №801/2020.</li>
+              <li>Тренінг з фасилітації груп підтримки, ГЖО "Сфера", 2020.</li>
+              <li>Лекційний курс по психіатрії, ВОППГП, 18 - 20.09.2020.</li>
+              <li>Пропедевтика сексології, ВОППГП, 24 - 26.11.2020.</li>
+              <li>Курс по роботі з вразливими групами населення, ГО "Інсайт", 07.10.2020 - 04.05.2022.</li>
+              <li>AUDHD: коли РДУГ і аутизм зустрічаються в одному мозку, Нейромед, 31.07.2025.</li>
+            </ul>
+          </div>
+
+          <div class="training-group">
+            <h3>Конференції та інтенсиви</h3>
+            <ul>
+              <li>Науково-практична конференція ХіГІП "Гештальт і психодрама - мистецтво жити!", 11 - 12.03.2017.</li>
+              <li>Науково-практична конференція ХіГІП "Взаємо-дія", 17 - 18.03.2018.</li>
+              <li>9-й тренінг-інтенсив ХіГІП "Всесвіт Гештальту і Психодрами, шлях професіонала", 13 - 23.07.2018.</li>
+              <li>Науково-практична конференція ХіГІП "Симфонія почуттів", 16 - 17.03.2019.</li>
+              <li>10-й тренінг-інтенсив ХіГІП "Всесвіт Гештальту і Психодрами, шлях професіонала", 12 - 22.06.2019.</li>
+              <li>11-й тренінг-інтенсив ХіГІП "Всесвіт Гештальту і Психодрами, шлях професіонала", 12 - 22.06.2020.</li>
+              <li>Науково-практична конференція ХіГІП "Виклики сучасного світу: реалії і парадокси психотерапії", 10 - 11.10.2020.</li>
+              <li>12-й тренінг-інтенсив ХіГІП "Всесвіт Гештальту і Психодрами, шлях професіонала", 10 - 20.07.2021.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <div class="footer">Static psychological CV site ready for GitHub Pages.</div>
+  </main>
+</body>
+</html>
